@@ -1,6 +1,6 @@
 Identify the Target Device:
 
-#nmap -sU -p 161 --script=snmp-info <target-ip>
+#nmap -sU -p <port_number> --script=snmp-info <target-ip>
 
 //Look for devices that have SNMP open on UDP port 161.
 
