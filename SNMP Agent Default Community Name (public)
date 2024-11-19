@@ -1,0 +1,13 @@
+#nmap -sU -p 161 <target-IP>
+
+If the port is open, proceed to the next step.
+
+______________________________________________________
+
+Simulate Exploit for POC
+
+#msfconsole
+use auxiliary/scanner/snmp/snmp_enum
+set RHOSTS <target-IP>
+set COMMUNITY public
+run
