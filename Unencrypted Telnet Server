@@ -1,0 +1,1 @@
+nmap -p 23 <ip> --script telnet-encryption
